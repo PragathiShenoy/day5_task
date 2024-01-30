@@ -1,0 +1,117 @@
+1. create resume in JSON format:
+
+let resume = {
+  "personalInformation": {
+    "name": "Pragathi Shenoy",
+    "phone": "9731239959",
+    "email": "pragathishenoy6@gmail.com",
+    "address": "Mangalore, India"
+  },
+  "summary": "Multi-talented Content Writer well-versed in research, writing and editing a wide range of content. Comfortable working with little oversight to write interesting, clean and clear copy. Skilled in content management systems, online content publishing software, and SEO. Organized and motivated employee eager to apply time management and organizational skills in various environments. Seeking opportunities to expand skills while facilitating company growth.",
+  "skills": [
+    "News Writing",
+    "Deadline Management",
+    "Proofreading",
+    "Python",
+    "AutoCAD",
+    "SketchUp",
+    "Power BI",
+    "Creative Content Creation"
+  ],
+  "workExperience": [
+    {
+      "position": "Content Writer",
+      "company": "News Karnataka",
+      "location": "Mangalore, India",
+      "startDate": "05/2023",
+      "endDate": "Current",
+      "responsibilities": [
+        "Delivered high-quality written content meeting tight deadlines.",
+        "Conducted in-depth research for clear and accurate copy.",
+        "Created SEO content based on keyword priorities.",
+        "Developed consumer-facing content for marketing materials.",
+        "Identified and wrote brand success stories.",
+        "Created content for websites, blogs, and social media.",
+        "Edited content for accuracy and readability.",
+        "Researched industry trends for relevant content."
+      ]
+    },
+    {
+      "position": "Senior Draftsman",
+      "company": "Alvas & Associates",
+      "location": "Mangalore",
+      "startDate": "07/2016",
+      "endDate": "07/2023",
+      "responsibilities": [
+        "Developed detailed drawings and plans for new products.",
+        "Created 3D models for manufacturing processes.",
+        "Reviewed existing designs for improvements.",
+        "Performed complex calculations for component characteristics."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Science",
+    "major": "Civil Engineering",
+    "university": "JNNCE, Shivamogga",
+    "graduationDate": "09/2015"
+  }
+};
+
+console.log(`
+Name: ${resume.personalInformation.name}
+Phone: ${resume.personalInformation.phone}
+Email: ${resume.personalInformation.email}
+Address: ${resume.personalInformation.address}
+
+Summary:
+${resume.summary}
+
+Skills:
+${resume.skills.map(skill => `- ${skill}`).join('\n')}
+
+Work Experience:
+${resume.workExperience.map(job => `
+  Position: ${job.position}
+  Company: ${job.company}
+  Location: ${job.location}
+  Start Date: ${job.startDate}
+  End Date: ${job.endDate}
+  Responsibilities:
+  ${job.responsibilities.map(responsibility => `    - ${responsibility}`).join('\n')}
+`).join('\n')}
+
+Education:
+  Degree: ${resume.education.degree}
+  Major: ${resume.education.major}
+  University: ${resume.education.university}
+  Graduation Date: ${resume.education.graduationDate}
+`);
+
+
+2. For the above Json iterate for loops, (for, for in, for of, for each)
+
+a. Forloop:
+
+for (let i = 0; i < Object.keys(resume).length; i++) {
+    let section = Object.keys(resume)[i];
+    console.log(section, resume[section]);
+}
+
+b.Forin loop:
+
+for (let section in resume) {
+    console.log(section, resume[section]);
+}
+
+c. Forof loop:
+
+for (let [section, value] of Object.entries(resume)) {
+    console.log(section, value);
+}
+
+d. Foreach loop:
+
+Object.entries(resume).forEach(([section, value]) => {
+    console.log(section, value);
+
